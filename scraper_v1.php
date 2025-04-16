@@ -24,3 +24,6 @@ if (empty($newPrograms)) {
 
 $name = 'docs/v1/' . $date->format('Ymd') . '.json';
 file_put_contents($name, json_encode(['programs' => $newPrograms]));
+
+$name = 'docs/v1/today.json';
+file_put_contents($name, json_encode(['programs' => $newPrograms]));
