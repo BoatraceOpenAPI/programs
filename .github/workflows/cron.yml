@@ -11,6 +11,13 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        scraper-version: ['^4.0', '^5.0']
+    concurrency:
+      group: deploy-${{ matrix.scraper-version }}
+      cancel-in-progress: false
+
     steps:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -20,13 +27,27 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Install Composer
+      - name: Install base dependencies (without scraper)
+        run: |
+          composer remove bvp/boatrace-scraper --no-update || true
+          composer install --no-interaction --no-progress
+
+      - name: Install scraper version ${{ matrix.scraper-version }}
+        run: composer require bvp/boatrace-scraper:${{ matrix.scraper-version }} --no-update
+
+      - name: Final install
         run: composer install --prefer-dist --no-interaction --no-progress
 
-      - name: Scrape Data
+      - name: Scrape Data (v1 for ^4.0)
+        if: matrix.scraper-version == '^4.0'
         run: php scraper_v1.php
 
-      - name: Deploy JSON
+      - name: Scrape Data (v2 for ^5.0)
+        if: matrix.scraper-version == '^5.0'
+        run: php scraper_v2.php
+
+      - name: Deploy JSON for scraper v1
+        if: matrix.scraper-version == '^4.0'
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
@@ -37,6 +58,22 @@ jobs:
             git push origin HEAD
           else
             echo "No JSON changes in docs/v1 to commit."
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy JSON for scraper v2
+        if: matrix.scraper-version == '^5.0'
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          FILES=$(git ls-files --modified --others --exclude-standard docs/v2/*.json || true)
+          if [ -n "$FILES" ]; then
+            git add $FILES
+            git commit -m "chore: Deploy JSON file to docs/v2 [skip ci]" || exit 0
+            git push origin HEAD
+          else
+            echo "No JSON changes in docs/v2 to commit."
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
