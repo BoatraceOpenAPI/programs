@@ -32,8 +32,11 @@ jobs:
           composer remove bvp/boatrace-scraper --no-update || true
           composer install --no-interaction --no-progress
 
-      - name: Install scraper version ${{ matrix.scraper-version }}
+      - name: Require scraper version ${{ matrix.scraper-version }}
         run: composer require bvp/boatrace-scraper:${{ matrix.scraper-version }} --no-update
+
+      - name: Update lock file for scraper
+        run: composer update bvp/boatrace-scraper --with-dependencies
 
       - name: Final install
         run: composer install --prefer-dist --no-interaction --no-progress
@@ -55,6 +58,7 @@ jobs:
           if [ -n "$FILES" ]; then
             git add $FILES
             git commit -m "chore: Deploy JSON file to docs/v1 [skip ci]" || exit 0
+            git pull --rebase
             git push origin HEAD
           else
             echo "No JSON changes in docs/v1 to commit."
@@ -71,6 +75,7 @@ jobs:
           if [ -n "$FILES" ]; then
             git add $FILES
             git commit -m "chore: Deploy JSON file to docs/v2 [skip ci]" || exit 0
+            git pull --rebase
             git push origin HEAD
           else
             echo "No JSON changes in docs/v2 to commit."
