@@ -45,10 +45,6 @@ jobs:
         if: matrix.scraper-version == '^4.0'
         run: php scraper_v1.php
 
-      - name: Scrape Data (v2 for ^5.0)
-        if: matrix.scraper-version == '^5.0'
-        run: php scraper_v2.php
-
       - name: Deploy JSON for scraper v1
         if: matrix.scraper-version == '^4.0'
         run: |
@@ -64,6 +60,10 @@ jobs:
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Scrape Data (v2 for ^5.0)
+        if: matrix.scraper-version == '^5.0'
+        run: php scraper_v2.php
 
       - name: Deploy JSON for scraper v2
         if: matrix.scraper-version == '^5.0'
