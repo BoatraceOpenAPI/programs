@@ -54,6 +54,7 @@ jobs:
           if [ -n "$FILES" ]; then
             git add $FILES
             git commit -m "chore: Deploy JSON file to docs/v1 [skip ci]" || exit 0
+            git pull --rebase --autostash
             git push origin HEAD
           else
             echo "No JSON changes in docs/v1 to commit."
@@ -74,6 +75,7 @@ jobs:
           if [ -n "$FILES" ]; then
             git add $FILES
             git commit -m "chore: Deploy JSON file to docs/v2 [skip ci]" || exit 0
+            git pull --rebase --autostash
             git push origin HEAD
           else
             echo "No JSON changes in docs/v2 to commit."
