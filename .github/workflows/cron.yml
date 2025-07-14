@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     strategy:
       matrix:
         scraper-version: ['^4.0', '^5.0']
@@ -58,7 +58,6 @@ jobs:
           if [ -n "$FILES" ]; then
             git add $FILES
             git commit -m "chore: Deploy JSON file to docs/v1 [skip ci]" || exit 0
-            git pull --rebase
             git push origin HEAD
           else
             echo "No JSON changes in docs/v1 to commit."
@@ -75,7 +74,6 @@ jobs:
           if [ -n "$FILES" ]; then
             git add $FILES
             git commit -m "chore: Deploy JSON file to docs/v2 [skip ci]" || exit 0
-            git pull --rebase
             git push origin HEAD
           else
             echo "No JSON changes in docs/v2 to commit."
