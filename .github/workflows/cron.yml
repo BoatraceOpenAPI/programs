@@ -9,55 +9,8 @@ permissions:
   contents: write
 
 jobs:
-  deploy-v1:
-    name: Deploy scraper ^4.0
-    runs-on: ubuntu-24.04
-
-    steps:
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.4'
-
-      - name: Checkout Code
-        uses: actions/checkout@v4
-
-      - name: Install base dependencies (without scraper)
-        run: |
-          composer remove bvp/boatrace-scraper --no-update || true
-          composer install --no-interaction --no-progress
-
-      - name: Require scraper version ^4.0
-        run: composer require bvp/boatrace-scraper:^4.0 --no-update
-
-      - name: Update lock file for scraper
-        run: composer update bvp/boatrace-scraper --with-dependencies
-
-      - name: Final install
-        run: composer install --prefer-dist --no-interaction --no-progress
-
-      - name: Scrape Data (v1)
-        run: php scraper_v1.php
-
-      - name: Deploy JSON for scraper v1
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          FILES=$(git ls-files --modified --others --exclude-standard docs/v1/*.json || true)
-          if [ -n "$FILES" ]; then
-            git add $FILES
-            git commit -m "chore: Deploy JSON file to docs/v1 [skip ci]" || exit 0
-            git pull --rebase --autostash
-            git push origin HEAD
-          else
-            echo "No JSON changes in docs/v1 to commit."
-          fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   deploy-v2:
     name: Deploy scraper ^5.0
-    needs: deploy-v1
     runs-on: ubuntu-24.04
 
     steps:
