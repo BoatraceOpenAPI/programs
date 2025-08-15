@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/vendor/autoload.php';
 
-use BVP\BoatraceScraper\Scraper;
+use BVP\Scraper\Scraper;
 use Carbon\CarbonImmutable as Carbon;
 
 $date = Carbon::today('Asia/Tokyo');
