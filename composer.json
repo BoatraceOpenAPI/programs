@@ -1,6 +1,6 @@
 {
     "require": {
-        "bvp/boatrace-scraper": "^5.0",
+        "bvp/scraper": "^5.0",
         "nesbot/carbon": "^3.0"
     }
 }
