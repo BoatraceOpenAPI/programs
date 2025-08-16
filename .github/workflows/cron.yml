@@ -24,14 +24,14 @@ jobs:
 
       - name: Install base dependencies (without scraper)
         run: |
-          composer remove bvp/boatrace-scraper --no-update || true
+          composer remove bvp/scraper --no-update || true
           composer install --no-interaction --no-progress
 
       - name: Require scraper version ^5.0
-        run: composer require bvp/boatrace-scraper:^5.0 --no-update
+        run: composer require bvp/scraper:^5.0 --no-update
 
       - name: Update lock file for scraper
-        run: composer update bvp/boatrace-scraper --with-dependencies
+        run: composer update bvp/scraper --with-dependencies
 
       - name: Final install
         run: composer install --prefer-dist --no-interaction --no-progress
