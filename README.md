@@ -4,10 +4,10 @@
 [![pages-build-deployment](https://github.com/BoatraceOpenAPI/programs/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/BoatraceOpenAPI/programs/actions/workflows/pages/pages-build-deployment)
 [![issues](https://img.shields.io/github/issues/BoatraceOpenAPI/programs.svg)](https://github.com/BoatraceOpenAPI/programs/issues)
 [![pulls](https://img.shields.io/github/issues-pr/BoatraceOpenAPI/programs.svg)](https://github.com/BoatraceOpenAPI/programs/pulls)
-[![license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![license](https://img.shields.io/badge/license-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-ボートレース（競艇）の出走表データを取得できるWeb APIです。
-GitHub Pagesを使用して静的なJSONファイルとして配信しています。
+ボートレース（競艇）の出走表データが取得可能な Web API です。
+GitHub Pages を用いて静的な JSON ファイルとして配信しています。
 
 ## エンドポイント
 ```
