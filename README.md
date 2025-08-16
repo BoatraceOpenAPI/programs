@@ -1,5 +1,11 @@
 # Boatrace Open API for Programs
 
+[![cron](https://github.com/BoatraceOpenAPI/programs/actions/workflows/cron.yml/badge.svg)](https://github.com/BoatraceOpenAPI/programs/actions/workflows/cron.yml)
+[![pages-build-deployment](https://github.com/BoatraceOpenAPI/programs/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/BoatraceOpenAPI/programs/actions/workflows/pages/pages-build-deployment)
+[![issues](https://img.shields.io/github/issues/BoatraceOpenAPI/programs.svg)](https://github.com/BoatraceOpenAPI/programs/issues)
+[![pulls](https://img.shields.io/github/issues-pr/BoatraceOpenAPI/programs.svg)](https://github.com/BoatraceOpenAPI/programs/pulls)
+[![license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ボートレース（競艇）の出走表データを取得できるWeb APIです。
 GitHub Pagesを使用して静的なJSONファイルとして配信しています。
 
@@ -19,4 +25,4 @@ https://boatraceopenapi.github.io/programs/v2/{日付}.json
 | 結果 | [Boatrace Open API for Results](https://github.com/BoatraceOpenAPI/results) | https://boatraceopenapi.github.io/results/v2/{日付}.json |
 
 ## ライセンス
-The Boatrace Open API for Programs is open source software licensed under the [MIT license](LICENSE).
+Boatrace Open API for Programs は [MITライセンス](LICENSE) の元で公開されています。
