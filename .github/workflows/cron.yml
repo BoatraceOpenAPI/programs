@@ -37,7 +37,7 @@ jobs:
         run: composer install --prefer-dist --no-interaction --no-progress
 
       - name: Scrape Data (v2)
-        run: php scraper_v2.php
+        run: php scraper.php v2
 
       - name: Deploy JSON for scraper v2
         run: |
