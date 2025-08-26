@@ -1,6 +1,35 @@
 {
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "boa/programs",
+    "description": "Boatrace Open API for Programs",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "shimomo",
+            "email": "boa@shimomo.net"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/BoatraceOpenAPI/programs/issues",
+        "source": "https://github.com/BoatraceOpenAPI/programs"
+    },
     "require": {
-        "bvp/scraper": "^5.0",
-        "nesbot/carbon": "^3.0"
+        "php": "^8.4",
+        "bvp/scraper": "^5.3",
+        "nesbot/carbon": "^2.63 || ^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "BOA\\Programs\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BOA\\Programs\\Tests\\": "tests/"
+        }
     }
 }
