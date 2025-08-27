@@ -7,6 +7,7 @@
 [![license](https://img.shields.io/badge/license-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 > **⚠️ 注意事項**
+>
 > 本 API は**非公式**であり、BOATRACE 公式サイト・団体とは一切関係ありません。
 > データはリアルタイム更新ではなく、**約30分間隔で更新**されます。
 > データの正確性・完全性を保証するものではありません。
