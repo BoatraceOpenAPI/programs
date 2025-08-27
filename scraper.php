@@ -34,5 +34,5 @@ if (empty($programs ?? [])) {
 // 日付付きの JSON ファイルとして保存（例: docs/v2/20250826.json）
 // 最新データとして today.json にも保存
 $storage = new ProgramStorage();
-$storage->save($programs, "docs/{$version}/" . $date->format('Ymd') . '.json');
+$storage->save($programs, "docs/{$version}/" . $date->format('Y') . '/' . $date->format('Ymd') . '.json');
 $storage->save($programs, "docs/{$version}/today.json");
