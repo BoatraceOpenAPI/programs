@@ -43,7 +43,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          FILES=$(git ls-files --modified --others --exclude-standard docs/v2/*.json || true)
+          FILES=$(git ls-files --modified --others --exclude-standard docs/v2/**/*.json || true)
           if [ -n "$FILES" ]; then
             git add $FILES
             git commit -m "chore: deploy JSON file to docs/v2 [skip ci]" || exit 0
