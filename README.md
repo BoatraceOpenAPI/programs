@@ -18,18 +18,18 @@
 
 ## エンドポイント
 ```
-https://boatraceopenapi.github.io/programs/v2/{日付}.json
+https://boatraceopenapi.github.io/programs/v2/YYYY/YYYYMMDD.json
 ```
 
 ## サンプル
-- [https://boatraceopenapi.github.io/programs/v2/20250715.json](https://boatraceopenapi.github.io/programs/v2/20250715.json)
+- [https://boatraceopenapi.github.io/programs/v2/2025/20250715.json](https://boatraceopenapi.github.io/programs/v2/2025/20250715.json)
 - [https://boatraceopenapi.github.io/programs/v2/today.json](https://boatraceopenapi.github.io/programs/v2/today.json)
 
 ## 関連
 | 対象 | リポジトリ | エンドポイント |
 |:---|:---|:---|
-| 直前情報 | [Boatrace Open API for Previews](https://github.com/BoatraceOpenAPI/previews) | https://boatraceopenapi.github.io/previews/v2/{日付}.json |
-| 結果 | [Boatrace Open API for Results](https://github.com/BoatraceOpenAPI/results) | https://boatraceopenapi.github.io/results/v2/{日付}.json |
+| 直前情報 | [Boatrace Open API for Previews](https://github.com/BoatraceOpenAPI/previews) | https://boatraceopenapi.github.io/previews/v2/YYYY/YYYYMMDD.json |
+| 結果 | [Boatrace Open API for Results](https://github.com/BoatraceOpenAPI/results) | https://boatraceopenapi.github.io/results/v2/YYYY/YYYYMMDD.json |
 
 ## ライセンス
 Boatrace Open API for Programs は [MITライセンス](LICENSE) の元で公開されています。
