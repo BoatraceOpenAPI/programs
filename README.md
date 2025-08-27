@@ -6,8 +6,14 @@
 [![pulls](https://img.shields.io/github/issues-pr/BoatraceOpenAPI/programs.svg)](https://github.com/BoatraceOpenAPI/programs/pulls)
 [![license](https://img.shields.io/badge/license-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-ボートレース（競艇）の出走表データが取得可能な Web API です。
-GitHub Pages を用いて静的な JSON ファイルとして配信しています。
+> **⚠️ 注意事項**
+> 本 API は**非公式**であり、BOATRACE 公式サイト・団体とは一切関係ありません。
+> データはリアルタイム更新ではなく、**約30分間隔で更新**されます。
+> データの正確性・完全性を保証するものではありません。
+> 利用は自己責任でお願いします。
+
+ボートレース（競艇）の出走表データを取得できる Web API です。
+データは GitHub Pages 上で公開されており、JSON 形式で提供しています。
 
 ## エンドポイント
 ```
