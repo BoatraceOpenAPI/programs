@@ -56,7 +56,16 @@ final class ProgramStorage
     public function save(array $programs, string $path): void
     {
         $contents = json_encode(['programs' => $programs]);
-        if ($contents !== false && file_put_contents($path, $contents) === false) {
+        if ($contents === false) {
+            throw new \RuntimeException("Failed to encode programs to JSON");
+        }
+
+        $dir = dirname($path);
+        if (!is_dir($dir) && !mkdir($dir, 0777, true) && !is_dir($dir)) {
+            throw new \RuntimeException("Failed to create directory: {$dir}");
+        }
+
+        if (file_put_contents($path, $contents) === false) {
             throw new \RuntimeException("Failed to save programs to {$path}");
         }
     }
