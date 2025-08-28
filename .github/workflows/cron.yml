@@ -43,7 +43,13 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          FILES=$(git diff --name-only --diff-filter=AM HEAD -- docs/v2 | grep '\.json$' || true)
+          FILES=$(
+            {
+              git ls-files -m -- 'docs/v2' | grep '\.json$'
+              git diff --cached --name-only --diff-filter=AM -- 'docs/v2' | grep '\.json$'
+              git ls-files --others --exclude-standard -- 'docs/v2' | grep '\.json$'
+            } | sort -u
+          )
           if [ -n "$FILES" ]; then
             git add $FILES
             git commit -m "chore: deploy JSON file to docs/v2 [skip ci]" || exit 0
