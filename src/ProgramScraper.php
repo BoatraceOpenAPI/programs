@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace BOA\Programs;
 
-use BVP\Scraper\Scraper;
 use Carbon\CarbonImmutable as Carbon;
 use Carbon\CarbonInterface;
 
@@ -14,9 +13,9 @@ use Carbon\CarbonInterface;
 final class ProgramScraper
 {
     /**
-     * @param \BVP\Scraper\Scraper  $scraper
+     * @param \BOA\Programs\ScraperInterface  $scraper
      */
-    public function __construct(private readonly Scraper $scraper)
+    public function __construct(private readonly ScraperInterface $scraper)
     {
         //
     }
