@@ -10,12 +10,15 @@ use Carbon\CarbonImmutable as Carbon;
 use PHPUnit\Framework\TestCase;
 
 /**
+ * @psalm-import-type ScrapedStadiumRaces from ScraperInterface
+ *
  * @author shimomo
  */
 final class ProgramScraperTest extends Testcase
 {
     /**
-     * @param  \Carbon\CarbonInterface|string  $date
+     * @psalm-return void
+     *
      * @return void
      */
     public function testScrape(): void
@@ -32,48 +35,11 @@ final class ProgramScraperTest extends Testcase
     }
 
     /**
-     * @psalm-type NormalizedBoat array{
-     *     racer_boat_number: int,
-     *     racer_name: string,
-     *     racer_number: int,
-     *     racer_class_number: int,
-     *     racer_branch_number: int,
-     *     racer_birthplace_number: int,
-     *     racer_age: int,
-     *     racer_weight: int|float,
-     *     racer_flying_count: int,
-     *     racer_late_count: int,
-     *     racer_average_start_timing: float,
-     *     racer_national_top_1_percent: float,
-     *     racer_national_top_2_percent: float,
-     *     racer_national_top_3_percent: float,
-     *     racer_local_top_1_percent: float,
-     *     racer_local_top_2_percent: float,
-     *     racer_local_top_3_percent: float,
-     *     racer_assigned_motor_number: int,
-     *     racer_assigned_motor_top_2_percent: float,
-     *     racer_assigned_motor_top_3_percent: float,
-     *     racer_assigned_boat_number: int,
-     *     racer_assigned_boat_top_2_percent: float,
-     *     racer_assigned_boat_top_3_percent: float
-     * }
+     * @psalm-param int $keyIndex
+     * @psalm-return ScrapedStadiumRaces
      *
-     * @psalm-type NormalizedRace array{
-     *     race_date: string,
-     *     race_stadium_number: int,
-     *     race_number: int,
-     *     race_closed_at: string,
-     *     race_grade_number: int,
-     *     race_title: string,
-     *     race_subtitle: string,
-     *     race_distance: int,
-     *     boats: array<int, NormalizedBoat>
-     * }
-     *
-     * @psalm-type NormalizedRaces array<int, NormalizedRace>
-     *
-     * @param  int  $keyIndex
-     * @return NormalizedRaces
+     * @param int $keyIndex
+     * @return array
      */
     private function testScrapeData(int $keyIndex): array
     {
