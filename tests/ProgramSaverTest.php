@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace BOA\Programs\Tests;
 
-use BOA\Programs\ProgramStorage;
+use BOA\Programs\ProgramSaver;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @author shimomo
  */
-final class ProgramStorageTest extends TestCase
+final class ProgramSaverTest extends TestCase
 {
     /**
      * @psalm-var non-empty-string
@@ -27,8 +27,10 @@ final class ProgramStorageTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->tempDir = sys_get_temp_dir() . '/program_storage_test_' . uniqid();
-        mkdir($this->tempDir, 0777, true);
+        $this->tempDir = sys_get_temp_dir() . '/program_saver_test_' . bin2hex(random_bytes(8));
+        if (!mkdir($this->tempDir, 0755, true) && !is_dir($this->tempDir)) {
+            $this->fail('Failed to create temp dir: ' . $this->tempDir);
+        }
     }
 
     /**
@@ -59,7 +61,7 @@ final class ProgramStorageTest extends TestCase
      */
     public function testSave(): void
     {
-        $storage = new ProgramStorage();
+        $saver = new ProgramSaver();
         $path = $this->tempDir . '/programs.json';
 
         $programs = [
@@ -102,7 +104,7 @@ final class ProgramStorageTest extends TestCase
             ],
         ];
 
-        $storage->save($programs, $path);
+        $saver->save($programs, $path);
 
         $this->assertFileExists($path);
 
