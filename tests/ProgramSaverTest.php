@@ -27,8 +27,10 @@ final class ProgramSaverTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->tempDir = sys_get_temp_dir() . '/program_saver_test_' . uniqid();
-        mkdir($this->tempDir, 0755, true);
+        $this->tempDir = sys_get_temp_dir() . '/program_saver_test_' . bin2hex(random_bytes(8));
+        if (!mkdir($this->tempDir, 0755, true) && !is_dir($this->tempDir)) {
+            $this->fail('Failed to create temp dir: ' . $this->tempDir);
+        }
     }
 
     /**
