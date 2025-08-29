@@ -32,7 +32,7 @@ if (empty($programs ?? [])) {
 }
 
 // 出走表データを JSON ファイルとして保存
-// 日付付きの JSON ファイルとして保存（例: docs/v2/2025/20250715.json）
+// 日付付きの JSON ファイルとして保存（例: docs/{version}/YYYY/YYYYMMDD.json）
 // 最新データとして today.json にも保存
 $storage = new ProgramStorage();
 $storage->save($programs, "docs/{$version}/" . $date->format('Y') . '/' . $date->format('Ymd') . '.json');
