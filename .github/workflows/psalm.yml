@@ -3,7 +3,7 @@ name: psalm
 on:
   push:
     branches:
-      - '*.x'
+      - 'gh-pages'
   pull_request:
   schedule:
     - cron: '0 0 * * *'
