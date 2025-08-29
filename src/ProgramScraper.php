@@ -53,7 +53,7 @@ final class ProgramScraper
         foreach (array_values($programs) as $data) {
             foreach (array_values($data) as $program) {
                 $program['boats'] = isset($program['boats'])
-                    ? array_values((array) $program['boats'])
+                    ? array_values($program['boats'])
                     : [];
                 $newPrograms[] = $program;
             }
