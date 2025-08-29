@@ -6,6 +6,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use BOA\Programs\ProgramScraper;
 use BOA\Programs\ProgramStorage;
+use BOA\Programs\ScraperAdapter;
 use BVP\Scraper\Scraper;
 use Carbon\CarbonImmutable as Carbon;
 
@@ -17,9 +18,9 @@ $date = Carbon::today('Asia/Tokyo');
 
 // v2 の場合のみ ProgramScraper を利用して出走表データを取得
 if ($version === 'v2') {
-    $scraper = new ProgramScraper(
-        Scraper::getInstance()
-    );
+    $scraperInstance = Scraper::getInstance();
+    $scraperAdapter = new ScraperAdapter($scraperInstance);
+    $scraper = new ProgramScraper($scraperAdapter);
 
     // 指定日付の出走表データをスクレイピング
     $programs = $scraper->scrape($date);
