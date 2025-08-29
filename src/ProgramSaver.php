@@ -9,7 +9,7 @@ namespace BOA\Programs;
  *
  * @author shimomo
  */
-final class ProgramStorage
+final class ProgramSaver
 {
     /**
      * @psalm-param ScrapedStadiumRaces $programs

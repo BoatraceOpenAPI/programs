@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace BOA\Programs\Tests;
 
-use BOA\Programs\ProgramStorage;
+use BOA\Programs\ProgramSaver;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @author shimomo
  */
-final class ProgramStorageTest extends TestCase
+final class ProgramSaverTest extends TestCase
 {
     /**
      * @psalm-var non-empty-string
@@ -59,7 +59,7 @@ final class ProgramStorageTest extends TestCase
      */
     public function testSave(): void
     {
-        $storage = new ProgramStorage();
+        $storage = new ProgramSaver();
         $path = $this->tempDir . '/programs.json';
 
         $programs = [
