@@ -1,4 +1,113 @@
-/.phpunit.cache
-/build
-/vendor
+#####################################
+# OS依存ファイル
+#####################################
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+#####################################
+# 一時ファイル・ログ・バックアップ
+#####################################
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
+
+#####################################
+# 環境変数・機密情報
+#####################################
+.env
+.env.*
+*.key
+*.pem
+
+#####################################
+# ビルド成果物・キャッシュ
+#####################################
+dist/
+build/
+out/
+tmp/
+cache/
+*.pyc
+__pycache__/
+
+#####################################
+# IDE / エディタ設定
+#####################################
+# VSCode
+.vscode/
+.history/
+
+# JetBrains系（PhpStormなど）
+.idea/
+
+#####################################
+# Node.js関連
+#####################################
+node_modules/
+npm-debug.log
+yarn-error.log
+*.lock
+
+#####################################
+# PHP関連設定
+#####################################
+
+# Composerの依存関係
+vendor/
+composer.phar
+
+# PHPUnitのキャッシュとレポート
 .phpunit.result.cache
+phpunit.xml.dist
+
+# PHP-CS-Fixerのキャッシュ
+.php-cs-fixer.cache
+
+# PHPStanやPsalmなど静的解析ツールのキャッシュ
+.phpstan/
+psalm.xml.dist
+
+# SymfonyやLaravelなどのキャッシュ・ログ・セッション
+storage/
+bootstrap/cache/
+var/
+*.cache
+
+# Laravel特有
+.env.backup
+.env.local
+.env.production
+.env.testing
+homestead.yaml
+Homestead.yaml
+Homestead.json
+.idea/
+
+# WordPress（テーマ・プラグイン開発時）
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+wp-content/debug.log
+
+#####################################
+# カバレッジ関連
+#####################################
+coverage/
+*.lcov
+
+#####################################
+# その他
+#####################################
+*.iml
+*.class
+*.o
+*.out
+*.so
+*.dll
+*.exe
+*.pid
