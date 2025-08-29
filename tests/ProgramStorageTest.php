@@ -13,11 +13,15 @@ use PHPUnit\Framework\TestCase;
 final class ProgramStorageTest extends TestCase
 {
     /**
-     * @var non-empty-string
+     * @psalm-var non-empty-string
+     *
+     * @var string
      */
     private string $tempDir;
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     protected function setUp(): void
@@ -28,6 +32,8 @@ final class ProgramStorageTest extends TestCase
     }
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     protected function tearDown(): void
@@ -47,6 +53,8 @@ final class ProgramStorageTest extends TestCase
     }
 
     /**
+     * @psalm-return void
+     *
      * @return void
      */
     public function testSave(): void
