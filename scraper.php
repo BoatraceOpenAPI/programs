@@ -13,7 +13,7 @@ use Carbon\CarbonImmutable as Carbon;
 // コマンドライン引数からバージョンを取得（デフォルトは v2）
 $version = $argv[1] ?? 'v2';
 
-// 今日の日付を東京時間で取得
+// 本日の日付を東京時間で取得
 $date = Carbon::today('Asia/Tokyo');
 
 // v2 の場合のみ ProgramScraper を利用して出走表データを取得
@@ -32,7 +32,7 @@ if (empty($programs ?? [])) {
 }
 
 // 出走表データを JSON ファイルとして保存
-// 日付付きの JSON ファイルとして保存（例: docs/v2/20250826.json）
+// 日付付きの JSON ファイルとして保存（例: docs/{version}/YYYY/YYYYMMDD.json）
 // 最新データとして today.json にも保存
 $storage = new ProgramStorage();
 $storage->save($programs, "docs/{$version}/" . $date->format('Y') . '/' . $date->format('Ymd') . '.json');
