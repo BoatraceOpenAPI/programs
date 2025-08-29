@@ -29,7 +29,7 @@ final class ProgramSaver
         }
 
         $dir = dirname($path);
-        if (!is_dir($dir) && !mkdir($dir, 0777, true) && !is_dir($dir)) {
+        if (!is_dir($dir) && !mkdir($dir, 0755, true) && !is_dir($dir)) {
             throw new \RuntimeException("Failed to create directory: {$dir}");
         }
 

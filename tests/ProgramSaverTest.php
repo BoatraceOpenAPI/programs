@@ -28,7 +28,7 @@ final class ProgramSaverTest extends TestCase
     {
         parent::setUp();
         $this->tempDir = sys_get_temp_dir() . '/program_saver_test_' . uniqid();
-        mkdir($this->tempDir, 0777, true);
+        mkdir($this->tempDir, 0755, true);
     }
 
     /**
