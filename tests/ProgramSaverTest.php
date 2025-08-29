@@ -59,7 +59,7 @@ final class ProgramSaverTest extends TestCase
      */
     public function testSave(): void
     {
-        $storage = new ProgramSaver();
+        $saver = new ProgramSaver();
         $path = $this->tempDir . '/programs.json';
 
         $programs = [
@@ -102,7 +102,7 @@ final class ProgramSaverTest extends TestCase
             ],
         ];
 
-        $storage->save($programs, $path);
+        $saver->save($programs, $path);
 
         $this->assertFileExists($path);
 

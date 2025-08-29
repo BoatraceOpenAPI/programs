@@ -34,6 +34,6 @@ if (empty($programs ?? [])) {
 // 出走表データを JSON ファイルとして保存
 // 日付付きの JSON ファイルとして保存（例: docs/{version}/YYYY/YYYYMMDD.json）
 // 最新データとして today.json にも保存
-$storage = new ProgramSaver();
-$storage->save($programs, "docs/{$version}/" . $date->format('Y') . '/' . $date->format('Ymd') . '.json');
-$storage->save($programs, "docs/{$version}/today.json");
+$saver = new ProgramSaver();
+$saver->save($programs, "docs/{$version}/" . $date->format('Y') . '/' . $date->format('Ymd') . '.json');
+$saver->save($programs, "docs/{$version}/today.json");
