@@ -21,6 +21,8 @@ Desktop.ini
 #####################################
 .env
 .env.*
+!.env.example
+!.env.*.example
 *.key
 *.pem
 
@@ -51,7 +53,6 @@ __pycache__/
 node_modules/
 npm-debug.log
 yarn-error.log
-*.lock
 
 #####################################
 # PHP関連設定
@@ -62,15 +63,16 @@ vendor/
 composer.phar
 
 # PHPUnitのキャッシュとレポート
+.phpunit.cache
 .phpunit.result.cache
-phpunit.xml.dist
+phpunit.xml
 
 # PHP-CS-Fixerのキャッシュ
 .php-cs-fixer.cache
 
 # PHPStanやPsalmなど静的解析ツールのキャッシュ
 .phpstan/
-psalm.xml.dist
+psalm.xml
 
 # SymfonyやLaravelなどのキャッシュ・ログ・セッション
 storage/
