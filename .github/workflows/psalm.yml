@@ -26,6 +26,8 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           extensions: mbstring, xml
+          tools: composer:v2
+          coverage: none
 
       - name: Checkout Repository
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
