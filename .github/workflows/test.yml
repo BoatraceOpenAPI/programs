@@ -39,4 +39,4 @@ jobs:
         run: composer update --prefer-dist --no-interaction --no-progress
 
       - name: Run PHPUnit ${{ matrix.phpunit-version }}
-        run: vendor/bin/phpunit --coverage-xml=build/coverage-xml
+        run: vendor/bin/phpunit --configuration=phpunit.xml.dist --coverage-xml=build/coverage-xml

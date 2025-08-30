@@ -36,4 +36,4 @@ jobs:
         run: composer install --prefer-dist --no-interaction --no-progress --dev
 
       - name: Run Psalm
-        run: vendor/bin/psalm --show-info=true
+        run: vendor/bin/psalm --config=psalm.xml.dist --show-info=true
