@@ -27,7 +27,7 @@ jobs:
           php-version: ${{ matrix.php-version }}
 
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install Dependencies
         run: composer install --prefer-dist --no-interaction --no-progress --dev
