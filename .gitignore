@@ -53,6 +53,8 @@ __pycache__/
 node_modules/
 npm-debug.log
 yarn-error.log
+yarn-debug.log*
+pnpm-debug.log*
 
 #####################################
 # PHP関連設定
@@ -65,6 +67,7 @@ composer.phar
 # PHPUnitのキャッシュとレポート
 .phpunit.cache
 .phpunit.result.cache
+phpunit.result.cache
 phpunit.xml
 
 # PHP-CS-Fixerのキャッシュ
@@ -77,7 +80,8 @@ psalm.xml
 # SymfonyやLaravelなどのキャッシュ・ログ・セッション
 storage/
 bootstrap/cache/
-var/
+var/cache/
+var/log/
 *.cache
 
 # Laravel特有
@@ -88,7 +92,6 @@ var/
 homestead.yaml
 Homestead.yaml
 Homestead.json
-.idea/
 
 # WordPress（テーマ・プラグイン開発時）
 wp-content/uploads/
