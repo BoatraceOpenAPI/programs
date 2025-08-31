@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @author shimomo
  */
-final class ProgramScraperTest extends Testcase
+final class ProgramScraperTest extends TestCase
 {
     /**
      * @psalm-return void
