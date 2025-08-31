@@ -15,12 +15,12 @@ jobs:
 
     steps:
       - name: Setup PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@ec406be512d7077f68eed36e63f4d91bc006edc4
         with:
           php-version: '8.4'
 
       - name: Checkout Code
-        uses: actions/checkout@v5
+        uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493
 
       - name: Install base dependencies (without scraper)
         run: |
