@@ -8,6 +8,7 @@ use Carbon\CarbonImmutable as Carbon;
 use Carbon\CarbonInterface;
 
 /**
+ * @psalm-import-type ScrapedRaces from ScraperInterface
  * @psalm-import-type ScrapedStadiumRaces from ScraperInterface
  *
  * @author shimomo
@@ -26,7 +27,7 @@ final class ProgramScraper
 
     /**
      * @psalm-param \Carbon\CarbonInterface|string $date
-     * @psalm-return ScrapedStadiumRaces
+     * @psalm-return ScrapedRaces
      *
      * @param \Carbon\CarbonInterface|string $date
      * @return array
@@ -41,7 +42,7 @@ final class ProgramScraper
 
     /**
      * @psalm-param ScrapedStadiumRaces $programs
-     * @psalm-return ScrapedStadiumRaces
+     * @psalm-return ScrapedRaces
      *
      * @param array $programs
      * @return array
@@ -59,7 +60,7 @@ final class ProgramScraper
             }
         }
 
-        /** @psalm-var ScrapedStadiumRaces */
+        /** @psalm-var ScrapedRaces */
         return $newPrograms;
     }
 }
