@@ -27,21 +27,27 @@ final class ProgramScraperTest extends Testcase
         $mockScraper->method('scrapePrograms')
             ->with(Carbon::create(2025, 7, 15))
             ->willReturn([
-                $this->testScrapeData(1),
+                1 => $this->testScrapeData(1, 5),
+                2 => $this->testScrapeData(2, 6),
             ]);
         $scraper = new ProgramScraper($mockScraper);
         $programs = $scraper->scrape(Carbon::create(2025, 7, 15));
-        $this->assertSame($this->testScrapeData(0), $programs);
+        $this->assertSame(array_merge(
+            $this->testScrapeData(0, 0),
+            $this->testScrapeData(1, 0)
+        ), $programs);
     }
 
     /**
      * @psalm-param int $keyIndex
+     * @psalm-param int $boatKeyIndex
      * @psalm-return ScrapedStadiumRaces
      *
      * @param int $keyIndex
+     * @param int $boatKeyIndex
      * @return array
      */
-    private function testScrapeData(int $keyIndex): array
+    private function testScrapeData(int $keyIndex, int $boatKeyIndex): array
     {
         return [
             $keyIndex => [
@@ -54,7 +60,7 @@ final class ProgramScraperTest extends Testcase
                 'race_subtitle' => '予選',
                 'race_distance' => 1800,
                 'boats' => [
-                    $keyIndex => [
+                    $boatKeyIndex => [
                         'racer_boat_number' => 1,
                         'racer_name' => '松本 浩貴',
                         'racer_number' => 3860,
