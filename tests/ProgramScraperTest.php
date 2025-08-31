@@ -25,13 +25,13 @@ final class ProgramScraperTest extends Testcase
     {
         $mockScraper = $this->createMock(ScraperInterface::class);
         $mockScraper->method('scrapePrograms')
-            ->with(Carbon::create(2025, 7, 15))
+            ->with(Carbon::create(2025, 7, 15, 0, 0, 0, 'Asia/Tokyo'))
             ->willReturn([
                 1 => $this->testScrapeData(1, 5),
                 2 => $this->testScrapeData(2, 6),
             ]);
         $scraper = new ProgramScraper($mockScraper);
-        $programs = $scraper->scrape(Carbon::create(2025, 7, 15));
+        $programs = $scraper->scrape(Carbon::create(2025, 7, 15, 0, 0, 0, 'Asia/Tokyo'));
         $this->assertSame(array_merge(
             $this->testScrapeData(0, 0),
             $this->testScrapeData(1, 0)
