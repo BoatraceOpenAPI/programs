@@ -5,6 +5,10 @@ on:
     - cron: '0,30 * * * *'
   workflow_dispatch:
 
+concurrency:
+  group: cron-${{ github.ref }}
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -21,6 +25,20 @@ jobs:
 
       - name: Checkout Code
         uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493
+        with:
+          fetch-depth: 0
+
+      - name: Get Composer cache directory
+        id: composer-cache
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - name: Cache Composer dependencies
+        uses: actions/cache@0400d5f644dc74513175e3cd8d07132dd4860809
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-php-
 
       - name: Install base dependencies (without scraper)
         run: |
