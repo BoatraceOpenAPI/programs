@@ -9,13 +9,13 @@
 ## ⚠️ 注意事項
 >
 > ⚡ 本 API は**非公式**であり、BOATRACE 公式サイト・団体とは一切関係ありません。<br>
-> 🕒 データはリアルタイム更新ではなく、**約30分間隔で更新**されます。<br>
+> 🕒 データはリアルタイム更新ではなく、**約30分間隔で更新**されます。（ GitHub Actions のスケジュールは cron.yml を参照 ）<br>
 > 🔍 データの正確性・完全性を保証するものではありません。<br>
 > 🙇‍♂️ 利用は自己責任でお願いします。
 
 ## 📌 概要
-この API では、ボートレース（競艇）の出走表データを取得できます。<br>
-データは GitHub Pages 上で公開されており、JSON形式で提供されます。
+この API では、ボートレース（ 競艇 ）の出走表データを取得できます。<br>
+データは GitHub Pages 上で公開されており、JSON 形式で提供されます。
 
 ## 🌐 エンドポイント
 ```bash
@@ -23,12 +23,15 @@ https://boatraceopenapi.github.io/programs/v2/YYYY/YYYYMMDD.json
 ```
 
 📅 YYYY → 年<br>
-📅 YYYYMMDD → 年月日
+📅 YYYYMMDD → 年月日<br>
+（ 日付は日本標準時 JST〔UTC+9〕基準 ）
+
+※ 仕様上の欠陥により v1 は破棄されました。
 
 ## 🧩 サンプル
-- 2025年07月14日の出走表
-  - [https://boatraceopenapi.github.io/programs/v2/2025/20250714.json](https://boatraceopenapi.github.io/programs/v2/2025/20250714.json)
-- 本日の出走表
+- 2025年07月15日の出走表
+  - [https://boatraceopenapi.github.io/programs/v2/2025/20250715.json](https://boatraceopenapi.github.io/programs/v2/2025/20250715.json)
+- 本日の出走表（ JST〔UTC+9〕基準 ）
   - [https://boatraceopenapi.github.io/programs/v2/today.json](https://boatraceopenapi.github.io/programs/v2/today.json)
 
 ## 🔗 関連リポジトリ
