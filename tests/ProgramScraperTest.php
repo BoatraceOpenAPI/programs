@@ -10,7 +10,7 @@ use Carbon\CarbonImmutable as Carbon;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @psalm-import-type ScrapedStadiumRaces from ScraperInterface
+ * @psalm-import-type ScrapedRaces from ScraperInterface
  *
  * @author shimomo
  */
@@ -41,7 +41,7 @@ final class ProgramScraperTest extends TestCase
     /**
      * @psalm-param int $keyIndex
      * @psalm-param int $boatKeyIndex
-     * @psalm-return ScrapedStadiumRaces
+     * @psalm-return ScrapedRaces
      *
      * @param int $keyIndex
      * @param int $boatKeyIndex
