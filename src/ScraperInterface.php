@@ -33,14 +33,16 @@ use Carbon\CarbonInterface;
  *     racer_assigned_boat_top_3_percent: float
  * }
  * @psalm-type ScrapedRace = array{
- *     race_date: string,
- *     race_stadium_number: int,
- *     race_number: int,
- *     race_closed_at: string,
- *     race_grade_number: int,
- *     race_title: string,
- *     race_subtitle: string,
- *     race_distance: int,
+ *     date: string,
+ *     stadium_number: int,
+ *     number: int,
+ *     closed_at: string,
+ *     day_label: string,
+ *     grade_label: string,
+ *     grade_number: int,
+ *     title: string,
+ *     subtitle: string,
+ *     distance: int,
  *     boats: array<int, ScrapedBoat>
  * }
  * @psalm-type ScrapedRaces = array<int, ScrapedRace>

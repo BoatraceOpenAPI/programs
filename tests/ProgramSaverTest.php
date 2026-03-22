@@ -66,14 +66,16 @@ final class ProgramSaverTest extends TestCase
 
         $programs = [
             [
-                'race_date' => '2025-07-15',
-                'race_stadium_number' => 1,
-                'race_number' => 1,
-                'race_closed_at' => '2025-07-15 15:17:00',
-                'race_grade_number' => 5,
-                'race_title' => 'にっぽん未来プロジェクト競走in桐生',
-                'race_subtitle' => '予選',
-                'race_distance' => 1800,
+                'date' => '2025-07-15',
+                'stadium_number' => 1,
+                'number' => 1,
+                'closed_at' => '2025-07-15 15:17:00',
+                'day_label' => '初日',
+                'grade_label' => '一般',
+                'grade_number' => 5,
+                'title' => 'にっぽん未来プロジェクト競走in桐生',
+                'subtitle' => '予選',
+                'distance' => 1800,
                 'boats' => [
                     [
                         'racer_boat_number' => 1,

@@ -27,8 +27,8 @@ final class ProgramScraperTest extends TestCase
         $mockScraper->method('scrapePrograms')
             ->with(Carbon::create(2025, 7, 15, 0, 0, 0, 'Asia/Tokyo'))
             ->willReturn([
-                1 => $this->testScrapeData(1, 5),
-                2 => $this->testScrapeData(2, 6),
+                $this->testScrapeData(0, 0),
+                $this->testScrapeData(1, 0),
             ]);
         $scraper = new ProgramScraper($mockScraper);
         $programs = $scraper->scrape(Carbon::create(2025, 7, 15, 0, 0, 0, 'Asia/Tokyo'));
@@ -51,14 +51,16 @@ final class ProgramScraperTest extends TestCase
     {
         return [
             $keyIndex => [
-                'race_date' => '2025-07-15',
-                'race_stadium_number' => 1,
-                'race_number' => 1,
-                'race_closed_at' => '2025-07-15 15:17:00',
-                'race_grade_number' => 5,
-                'race_title' => 'にっぽん未来プロジェクト競走in桐生',
-                'race_subtitle' => '予選',
-                'race_distance' => 1800,
+                'date' => '2025-07-15',
+                'stadium_number' => 1,
+                'number' => 1,
+                'closed_at' => '2025-07-15 15:17:00',
+                'day_label' => '初日',
+                'grade_label' => '一般',
+                'grade_number' => 5,
+                'title' => 'にっぽん未来プロジェクト競走in桐生',
+                'subtitle' => '予選',
+                'distance' => 1800,
                 'boats' => [
                     $boatKeyIndex => [
                         'racer_boat_number' => 1,

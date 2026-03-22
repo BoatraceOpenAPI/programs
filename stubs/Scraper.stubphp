@@ -2,4 +2,7 @@
 
 namespace BVP\Scraper;
 
-final class Scraper {}
+final class Scraper
+{
+    public function scrapePrograms(mixed ...$arguments);
+}
