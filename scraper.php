@@ -10,8 +10,8 @@ use BOA\Programs\ScraperAdapter;
 use BVP\Scraper\Scraper;
 use Carbon\CarbonImmutable as Carbon;
 
-// コマンドライン引数からバージョンを取得（デフォルトは v2）
-$version = $argv[1] ?? 'v2';
+// コマンドライン引数からバージョンを取得（デフォルトは v3）
+$version = $argv[1] ?? 'v3';
 
 // 本日の日付を東京時間で取得
 $date = Carbon::today('Asia/Tokyo');
