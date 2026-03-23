@@ -61,6 +61,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
           FILES=$(
             {
               git ls-files -m -- 'docs/v2' | grep '\.json$'
@@ -68,14 +69,22 @@ jobs:
               git ls-files --others --exclude-standard -- 'docs/v2' | grep '\.json$'
             } | sort -u
           )
-          if [ -n "$FILES" ]; then
-            git add $FILES
-            git commit -m "chore: deploy JSON files to docs/v2 [skip ci]" || exit 0
-            git pull --rebase --autostash
-            git push origin HEAD
-          else
+
+          if [ -z "$FILES" ]; then
             echo "No JSON changes in docs/v2 to commit."
+            exit 0
           fi
+
+          git pull --rebase --autostash
+
+          echo "$FILES" | xargs -d '\n' git add --
+
+          git commit -m "chore: deploy JSON files to docs/v2 [skip ci]" || {
+            echo "Nothing to commit."
+            exit 0
+          }
+
+          git push origin HEAD || (git pull --rebase --autostash && git push origin HEAD)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   deploy-v3:
@@ -127,6 +136,7 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
           FILES=$(
             {
               git ls-files -m -- 'docs/v3' | grep '\.json$'
@@ -134,13 +144,21 @@ jobs:
               git ls-files --others --exclude-standard -- 'docs/v3' | grep '\.json$'
             } | sort -u
           )
-          if [ -n "$FILES" ]; then
-            git add $FILES
-            git commit -m "chore: deploy JSON files to docs/v3 [skip ci]" || exit 0
-            git pull --rebase --autostash
-            git push origin HEAD
-          else
+
+          if [ -z "$FILES" ]; then
             echo "No JSON changes in docs/v3 to commit."
+            exit 0
           fi
+
+          git pull --rebase --autostash
+
+          echo "$FILES" | xargs -d '\n' git add --
+
+          git commit -m "chore: deploy JSON files to docs/v3 [skip ci]" || {
+            echo "Nothing to commit."
+            exit 0
+          }
+
+          git push origin HEAD || (git pull --rebase --autostash && git push origin HEAD)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
