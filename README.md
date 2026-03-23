@@ -10,7 +10,6 @@
 
 ## ⚠️ 注意事項
 
->
 > ⚡ 本 API は**非公式**であり、BOATRACE 公式サイト・団体とは一切関係ありません。<br>
 > 🕒 データはリアルタイム更新ではなく、**約30分間隔で更新**されます。（ GitHub Actions のスケジュールは cron.yml を参照 ）<br>
 > 🔍 データの正確性・完全性を保証するものではありません。<br>
@@ -25,11 +24,15 @@
 
 ### [![v3](https://img.shields.io/badge/Boatrace_Open_API_for_Programs-v3-blue)](https://github.com/BoatraceOpenAPI/programs/tree/gh-pages/docs/v3)
 
+> 📅 対応期間: 2026年01月01日以降
+
 ```bash
 https://boatraceopenapi.github.io/programs/v3/YYYY/YYYYMMDD.json
 ```
 
 ### [![v2](https://img.shields.io/badge/Boatrace_Open_API_for_Programs-v2-lightgrey)](https://github.com/BoatraceOpenAPI/programs/tree/gh-pages/docs/v2)
+
+> 📅 対応期間: 2025年07月14日以降
 
 ```bash
 https://boatraceopenapi.github.io/programs/v2/YYYY/YYYYMMDD.json
