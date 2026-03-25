@@ -24,7 +24,7 @@
 
 ### [![v3](https://img.shields.io/badge/Boatrace_Open_API_for_Programs-v3-blue)](https://github.com/BoatraceOpenAPI/programs/tree/gh-pages/docs/v3)
 
-> 📅 対応期間: 2026年01月01日以降
+> 📅 対応期間: 2025年10月01日以降
 
 ```bash
 https://boatraceopenapi.github.io/programs/v3/YYYY/YYYYMMDD.json
