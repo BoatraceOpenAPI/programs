@@ -32,7 +32,7 @@ https://boatraceopenapi.github.io/programs/v3/YYYY/YYYYMMDD.json
 
 ### [![v2](https://img.shields.io/badge/Boatrace_Open_API_for_Programs-v2-lightgrey)](https://github.com/BoatraceOpenAPI/programs/tree/gh-pages/docs/v2)
 
-> 📅 対応期間: 2025年07月14日以降
+> 📅 対応期間: 2025年05月01日以降
 
 ```bash
 https://boatraceopenapi.github.io/programs/v2/YYYY/YYYYMMDD.json
