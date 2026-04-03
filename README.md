@@ -24,7 +24,7 @@
 
 ### [![v3](https://img.shields.io/badge/Boatrace_Open_API_for_Programs-v3-blue)](https://github.com/BoatraceOpenAPI/programs/tree/gh-pages/docs/v3)
 
-> 📅 対応期間: 2024年07月01日以降
+> 📅 対応期間: 2024年05月01日以降
 
 ```bash
 https://boatraceopenapi.github.io/programs/v3/YYYY/YYYYMMDD.json
@@ -48,15 +48,15 @@ https://boatraceopenapi.github.io/programs/v2/YYYY/YYYYMMDD.json
 
 ### [![v3](https://img.shields.io/badge/Boatrace_Open_API_for_Programs-v3-blue)](https://github.com/BoatraceOpenAPI/programs/tree/gh-pages/docs/v3)
 
-- 2026年03月22日の出走表
-  - [https://boatraceopenapi.github.io/programs/v3/2026/20260322.json](https://boatraceopenapi.github.io/programs/v3/2026/20260322.json)
+- 2025年05月01日の出走表
+  - [https://boatraceopenapi.github.io/programs/v3/2025/20250501.json](https://boatraceopenapi.github.io/programs/v3/2025/20250501.json)
 - 本日の出走表（ JST〔UTC+9〕基準 ）
   - [https://boatraceopenapi.github.io/programs/v3/today.json](https://boatraceopenapi.github.io/programs/v3/today.json)
 
 ### [![v2](https://img.shields.io/badge/Boatrace_Open_API_for_Programs-v2-lightgrey)](https://github.com/BoatraceOpenAPI/programs/tree/gh-pages/docs/v2)
 
-- 2026年03月22日の出走表
-  - [https://boatraceopenapi.github.io/programs/v2/2026/20260322.json](https://boatraceopenapi.github.io/programs/v2/2026/20260322.json)
+- 2025年05月01日の出走表
+  - [https://boatraceopenapi.github.io/programs/v2/2025/20250501.json](https://boatraceopenapi.github.io/programs/v2/2025/20250501.json)
 - 本日の出走表（ JST〔UTC+9〕基準 ）
   - [https://boatraceopenapi.github.io/programs/v2/today.json](https://boatraceopenapi.github.io/programs/v2/today.json)
 
