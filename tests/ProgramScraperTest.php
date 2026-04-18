@@ -24,7 +24,8 @@ final class ProgramScraperTest extends TestCase
     public function testScrape(): void
     {
         $mockScraper = $this->createMock(ScraperInterface::class);
-        $mockScraper->method('scrapePrograms')
+        $mockScraper->expects($this->once())
+            ->method('scrapePrograms')
             ->with(Carbon::create(2025, 7, 15, 0, 0, 0, 'Asia/Tokyo'))
             ->willReturn([
                 $this->testScrapeData(0, 0),
