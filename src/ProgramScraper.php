@@ -35,8 +35,10 @@ final class ProgramScraper
     public function scrape(CarbonInterface|string $date = 'today'): array
     {
         $date = Carbon::parse($date, 'Asia/Tokyo');
+
         /** @psalm-var ScrapedStadiumRaces $programs */
         $programs = $this->scraper->scrapePrograms($date);
+
         return $this->normalize($programs);
     }
 
@@ -56,6 +58,7 @@ final class ProgramScraper
                 $program['boats'] = isset($program['boats'])
                     ? array_values($program['boats'])
                     : [];
+
                 $newPrograms[] = $program;
             }
         }

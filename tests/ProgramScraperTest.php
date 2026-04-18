@@ -31,8 +31,11 @@ final class ProgramScraperTest extends TestCase
                 $this->testScrapeData(0, 0),
                 $this->testScrapeData(1, 0),
             ]);
+
         $scraper = new ProgramScraper($mockScraper);
+
         $programs = $scraper->scrape(Carbon::create(2025, 7, 15, 0, 0, 0, 'Asia/Tokyo'));
+
         $this->assertSame(array_merge(
             $this->testScrapeData(0, 0),
             $this->testScrapeData(1, 0)

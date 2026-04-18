@@ -27,7 +27,9 @@ final class ProgramSaverTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
+
         $this->tempDir = sys_get_temp_dir() . '/program_saver_test_' . bin2hex(random_bytes(8));
+
         if (!mkdir($this->tempDir, 0755, true) && !is_dir($this->tempDir)) {
             $this->fail('Failed to create temp dir: ' . $this->tempDir);
         }
@@ -62,6 +64,7 @@ final class ProgramSaverTest extends TestCase
     public function testSave(): void
     {
         $saver = new ProgramSaver();
+
         $path = $this->tempDir . '/programs.json';
 
         $programs = [
@@ -111,6 +114,7 @@ final class ProgramSaverTest extends TestCase
         $this->assertFileExists($path);
 
         $content = json_decode(file_get_contents($path), true);
+
         $this->assertArrayHasKey('programs', $content);
         $this->assertSame($programs, $content['programs']);
     }
